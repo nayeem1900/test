@@ -1,0 +1,242 @@
+
+<?php
+if(isset($_POST['submit'])){
+    $to = "contact@armanagementcorp.org"; // this is your Email address
+    $from = $_POST['email']; // this is the sender's Email address
+    $name = $_POST['name'];
+    $mobile_no = $_POST['mobile_no'];
+    $address = $_POST['address'];
+    $subject = "Form submission";
+    $subject2 = "Copy of your form submission";
+    $message = $name . " " . $mobile_no . " " .$address " wrote the following:" . "\n\n" . $_POST['message'];
+    $message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['message'];
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
+    // You can also use header('Location: thank_you.php'); to redirect to another page.
+}
+?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>AR managenent corporation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b63bb1dcf5.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+<!--header section-->
+
+<!--slider section ctrl+? mark shortcut-->
+<section class="header">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href=""><img src="image/arl.jpg" style="height: 93px;  "></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ar me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html" style="color: white">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about_us.html"style="color: white" >About US</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color: white">
+                              Academics
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style=" background-color: #99ccff">
+                                <li><a class="dropdown-item" href="permit.html">Year Final Examination</a></li>
+                                <li><a class="dropdown-item" href="business_strt.html">Teacher Information </a></li>
+                                <li><a class="dropdown-item" href="business_strt.html">Student Information </a></li>
+
+                                <!--<li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false"style="color: white">
+                                Administration
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style=" background-color: #99ccff">
+                                <li><a class="dropdown-item" href="permit.html">Publication</a></li>
+                                <li><a class="dropdown-item" href="business_strt.html">Booklist </a></li>
+
+
+                                <!--<li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html"style="color: white">Admission</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html"style="color: white">Result</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html"style="color: white">Payment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html"style="color: white">Contact Us</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+
+
+    </div>
+
+
+
+</section>
+
+<!--banner-->
+<section class="banner">
+
+    <img src="image/c1.jpg" style="width:100%;">
+</section>
+
+<!--contact section-->
+
+<section class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h3 style="padding-top: 15px;
+                    padding-bottom: 5px;
+                    border-bottom: 1px solid black;
+                    width:39%;">Send Us a Message</h3>
+                <form action="mail.php" method="post">
+                    <div class="row" style="background: #ddd;">
+                        <div class="form-group col-md-6">
+                            <label for="name">Name<span style="color: red;font-weight: bold;">*</span></label>
+                            <input type="text" name="name" id="name"class="form-control" placeholder="Write Your Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email">Email<span style="color: red;font-weight: bold;">*</span></label>
+                            <input type="email" name="email" id="email"class="form-control" placeholder="Write Your email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="mobile_no">Mobile No<span style="color: red;font-weight: bold;">*</span></label>
+                            <input type="text" name="mobile_no" id="mobile_no"class="form-control" placeholder="Write Your Mobile NO">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="address">Address<span style="color: red;font-weight: bold;">*</span></label>
+                            <input type="text" name="address" id="address"class="form-control" placeholder="Write Your Address">
+                        </div>
+
+                        <div class="form-group col-md-12"style="padding-bottom: 5px;">
+                            <label for="message">Message<span style="color: red;font-weight: bold;">*</span></label>
+                            <textarea class="form-control"id="message" name="message" placeholder="Write Your Message" rows="5"></textarea>
+                        </div>
+                        <div class="form-group col-md-6" style="padding-bottom: 5px;">
+                          <input type="submit" name="submit" value="submit">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-md-5">
+                <h3 style="padding-top: 15px;
+                    padding-bottom: 5px;
+                    border-bottom: 1px solid black;
+                    width:49%;">Office Location</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.490421847266!2d90.3753577149823!3d23.801153784564434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c72dac19228b%3A0xe2a6f8a2d50716bb!2sIslami%20Bank%20Model%20School%20and%20College!5e0!3m2!1sen!2sbd!4v1631509673057!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--footer-->
+
+<section class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h3 style="color: white">Contact US</h3>
+                <p style="color: white">Address: Islami Bank Model School and College, Mirpur, Dhaka<br>
+                    Contract no:0123456789<br>
+                    email:abnmg@yahoo.com
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h3 style="color: white">follow Us</h3>
+                <div class="social" style="margin-left: -39px;">
+                    <ul>
+                        <li><a href="https://www.facebook.com/nayeemcyber/" target="_blank"><i class="fab fa-facebook"></i></a> </li>
+                        <li><a href=""><i class="fab fa-twitter"></i></a> </li>
+                        <li><a href=""><i class="fab fa-youtube-square"></i></a> </li>
+                        <li><a href=""><i class="fab fa-google-plus"></i></a> </li>
+                        <li><a href=""><i class="fab fa-linkedin"></i></a> </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p style="color: white; padding: 50px 0px 10px 0px;">
+                    Copyright &copy;<script type="text/javascript">document.write(new Date().getFullYear())</script> @ar management corporation
+                </p>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!--go to up-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="gotoup">
+                <img src="image/scrolup.jpg" style="width: 40px; height: 40px;">
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--<script src="js/jquery-3.6.0.min.js"></script>-->
+<!--<script type="text/javascript">-->
+<!--$(document).ready(e)(function () {-->
+<!--alert('ok');-->
+<!--});-->
+
+<!--</script>-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if($(this).scrollTop()>300){
+                $('.gotoup').fadeIn();
+            }else {
+                $('.gotoup').fadeOut();
+            }
+        });
+        $('.gotoup').click(function () {
+            $('html,body').animate({scrollTop:0},500);
+        });
+    });
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>
